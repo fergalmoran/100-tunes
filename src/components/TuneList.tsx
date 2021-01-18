@@ -10,6 +10,7 @@ import {
 import React, { useEffect, useState } from "react";
 import Tune from "../models/tune";
 import TuneTitle from "./TuneTitle";
+import YouTubePlayer from "./YouTubePlayer";
 
 const MixList = () => {
     const [tunes, setTunes] = useState<Tune[]>([]);
@@ -32,23 +33,33 @@ const MixList = () => {
             <Table size="small">
                 <TableHead>
                     <TableRow>
-                        <TableCell align="right"></TableCell>
+                        <TableCell>#</TableCell>
+                        <TableCell></TableCell>
                         <TableCell>Title</TableCell>
+                        <TableCell>Play</TableCell>
                         <TableCell>Link</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {tunes.map((row) => (
-                        <TableRow key={row.id}>
+                    {tunes.map((tune) => (
+                        <TableRow key={tune.id}>
+                            <TableCell align="center">{tune.id}</TableCell>
                             <TableCell align="center">
-                                <Avatar alt={row.title} src={row.image} />
+                                <Avatar alt={tune.title} src={tune.image} />
                             </TableCell>
                             <TableCell>
-                                <TuneTitle url={row.title} />
+                                <TuneTitle url={tune.title} />
+                            </TableCell>
+                            <TableCell>
+                                <YouTubePlayer
+                                    key={tune.id}
+                                    index={tune.id}
+                                    videoId={tune.videoId}
+                                />
                             </TableCell>
                             <TableCell>
                                 <Link
-                                    href={row.url}
+                                    href={tune.url}
                                     color="inherit"
                                     variant="body2"
                                 >
