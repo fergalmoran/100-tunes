@@ -15,10 +15,8 @@ const MixList = () => {
     useEffect(() => {
         const getData = async () => {
             try {
-                const mixes: Tune[] = await (
-                    await fetch(
-                        process.env.REACT_APP_DATA_URL || "data/tunes.json"
-                    )
+                const mixes: Tune[] = await(
+                    await fetch(`${process.env.PUBLIC_URL}/data/tunes.json`)
                 ).json();
                 setTunes(mixes);
             } catch (err) {
