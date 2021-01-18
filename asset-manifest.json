@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/100-tunes/static/css/main.ea1455b2.chunk.css",
-    "main.js": "/100-tunes/static/js/main.b450c9cf.chunk.js",
-    "main.js.map": "/100-tunes/static/js/main.b450c9cf.chunk.js.map",
+    "main.js": "/100-tunes/static/js/main.b8fb8b8a.chunk.js",
+    "main.js.map": "/100-tunes/static/js/main.b8fb8b8a.chunk.js.map",
     "runtime-main.js": "/100-tunes/static/js/runtime-main.e30cb5bf.js",
     "runtime-main.js.map": "/100-tunes/static/js/runtime-main.e30cb5bf.js.map",
     "static/js/2.57bfccce.chunk.js": "/100-tunes/static/js/2.57bfccce.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.e30cb5bf.js",
     "static/js/2.57bfccce.chunk.js",
     "static/css/main.ea1455b2.chunk.css",
-    "static/js/main.b450c9cf.chunk.js"
+    "static/js/main.b8fb8b8a.chunk.js"
   ]
 }
