@@ -10,7 +10,7 @@ import {
 import React, { useEffect, useState } from "react";
 import Tune from "../models/tune";
 import TuneTitle from "./TuneTitle";
-import YouTubePlayer from "./YouTubePlayer";
+import TunePlayer from "./TunePlayer";
 
 const MixList = () => {
     const [tunes, setTunes] = useState<Tune[]>([]);
@@ -51,7 +51,7 @@ const MixList = () => {
                                 <TuneTitle url={tune.title} />
                             </TableCell>
                             <TableCell>
-                                <YouTubePlayer
+                                <TunePlayer
                                     key={tune.id}
                                     index={tune.id}
                                     videoId={tune.videoId}
