@@ -1,14 +1,23 @@
+import {
+    Avatar,
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableRow,
+} from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import Tune from "../models/tune";
+import TuneTitle from "./TuneTitle";
 
 const MixList = () => {
     const [tunes, setTunes] = useState<Tune[]>([]);
     useEffect(() => {
         const getData = async () => {
             try {
-                const mixes: Tune[] = await(
+                const mixes: Tune[] = await (
                     await fetch(
-                        "https://raw.githubusercontent.com/fergalmoran/100-tunes/develop/public/data/tunes.json"
+                        process.env.REACT_APP_DATA_URL || "data/tunes.json"
                     )
                 ).json();
                 setTunes(mixes);
@@ -21,10 +30,28 @@ const MixList = () => {
 
     return (
         <div>
-            <h1>Here's a list of tunes</h1>
-            {tunes.map((m) => (
-                <pre key={m.id}>Fart: {m.url}</pre>
-            ))}
+            <Table size="small">
+                <TableHead>
+                    <TableRow>
+                        <TableCell>Link</TableCell>
+                        <TableCell>Title</TableCell>
+                        <TableCell align="right">Preview</TableCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    {tunes.map((row) => (
+                        <TableRow key={row.id}>
+                            <TableCell>{row.url}</TableCell>
+                            <TableCell>
+                                <TuneTitle url={row.title} />
+                            </TableCell>
+                            <TableCell align="right">
+                                <Avatar alt={row.title} src={row.image} />
+                            </TableCell>
+                        </TableRow>
+                    ))}
+                </TableBody>
+            </Table>
         </div>
     );
 };
