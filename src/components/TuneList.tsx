@@ -6,8 +6,10 @@ const MixList = () => {
     useEffect(() => {
         const getData = async () => {
             try {
-                const mixes: Tune[] = await (
-                    await fetch("/data/tunes.json")
+                const mixes: Tune[] = await(
+                    await fetch(
+                        "https://raw.githubusercontent.com/fergalmoran/100-tunes/develop/public/data/tunes.json"
+                    )
                 ).json();
                 setTunes(mixes);
             } catch (err) {
